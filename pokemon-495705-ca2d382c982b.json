@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pokemon-495705",
+  "private_key_id": "ca2d382c982bcec90d5d871b3c91c792afe4d6fe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDB8b7cfoQ5J6WQ\nK/2uMV3HWrYXX6F9e3nmWPCrIDwFSTi2ZQrfPqFAAHa3xiX6bMpAdtT74PG+SHIJ\n9D89QxlnIy4QN0OCWWNpPD7G+pkg6q17FDaHDRYC0/0tG2knN2wB3Wj1nMTqQ+io\nHHyAOijoEK0zRiUv8zKgb7YBy3qGIBibb/2JlG6dYjNah6MxMxiZg4DiEZafInPN\nlFLNmffYG5D01oZC/9xBDBMSZpqzeAFseXu2c1xy5mALHzCQDw/0ShLG4eRXCZtN\nfoMUmB0alFZMQHtfWVxINKdk6TkrgDvEfvxa4vnbWUSlPUQ2DTzAaiEQucTCZNLR\n5x/u9kVXAgMBAAECggEARBtnaZoaR9H277qrEs1uP9BIqsuf8+d1JuGr3oRq33ZX\nrqGsIDqnuMiQ6Ddy5c7ndZzlbXCQpEBfn8RAovxZwuDVT8eAcxl98hpAd3LQbIFN\nG7A8988uIB8exQTft/BcAwmkTsBXXGctoD+krwj9jYUxtZRYAc83Q6UHNvkkVU35\n64tMM/nSCr/sx3PXRw4aURq1JIBQaIN3w9a0U8pCobuQF3Tewgnw/pKGfGH/CI+O\n/4TFZi9s13+GEMYU1B6jLNtdg1WTwr9nbTCWjMS2gKrd4DTlo+MamnZ6jpr7kXIN\n1UuDz4jNbYToAKMC+AbWofWGMF504eGzSfs0+nH53QKBgQD1a5EbsRNtlboZtKSY\nhGa7kx9fj4UhOdTrrmi80v/M+ObPsu9R0rRzBl4e+Y5r7So29D0Hwj0NjEhVytSO\nVZc9g/DeDY3NIr2IBhzB03piG8HgtTDx14ZYWCpNwAIYCMXW9gtpBCLzYOvm1/jD\nQDf/eFG1r+6HWdJ2bzrXYK1wbQKBgQDKThiaveQQPvfdrWvyO4CDoc6sUYPBaNdr\njauxRTHlupGkm90/OrjSFu25MxW2falNeZQ+1xCu1IEc5XB5dXS4iyk4kJrI1KJH\npwVYKtxdv8PPLtCDfMU7yw3cARDGCotfOWNfg6jfUIyjwa1EvkMyvSamdK5TymVP\nIqs6JjbaUwKBgCEbfrrWm4FYBn/7P40Xp2g8g6n3iYUe8RtOLvDyIfH7zd9NCz3l\nh9RQkpfpII5ssxowvp7yVBwkxYlVUHFXGI0C5JaAC5YVzq2v7Wc0aTkc932h09V8\nNrJqSmKsuVuWq2HBVW64USK1+3zru7JTUnqTN6qj7jCyLFMv1CdD8oHNAoGAHhgR\n9urqgzQqwRIsLaOGUY5/ZQjXNa035mrzsHIfoxHm2nrJJb/BgJcik9syjqwQxFKi\np9psQ+Wes0K6QYckbtNctWplbByda1VAKUZu8480PJy1LeogmO1yyVhrO1qUMv0h\neDLoqxebZDzKXqCC9IhIuJhA2nwQJ/57RDItFLsCgYEAmp3v1KpsXd12//FzCvjd\nq5FUfNcKuIkHnuuan9UBtfvbN8uaXWo+bLDt0eHiqSHI5qMq9LFf+pUIbK3zkPAJ\nNX7eLRsv4Ro7+60p3Te+rBorUm9QoK9mpuoF6E9DHrnZWozKrhap1Tmoxr4fAz2q\nKDl3vu1SfczzYp/UXLzA2KQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pokemon@pokemon-495705.iam.gserviceaccount.com",
+  "client_id": "110513267527921988200",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pokemon%40pokemon-495705.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
