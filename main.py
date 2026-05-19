@@ -235,7 +235,7 @@ def main():
         # Every Monday at 10am
         job_queue.run_once(
             weekly_callback,
-            when=0,
+            when = 0
             # time=time(hour=10, minute=0, second=0),
             # days=(1, )
         )
