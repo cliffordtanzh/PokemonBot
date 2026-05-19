@@ -33,6 +33,11 @@ gc = gspread.authorize(creds)
 sheet = gc.open("PKM DB_dev")
 worksheet = sheet.get_worksheet(0)
 
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+
 
 def get_database():
     return pd.DataFrame(worksheet.get_all_records(value_render_option="FORMULA"))
@@ -101,33 +106,23 @@ async def get_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
     username = update.effective_chat.username
     chat_id = update.effective_chat.id
 
-    query = database[database["Telegram Handle"] == username]
-    status_columns = query.iloc[:, 6:]
-
-    if status_columns.shape[0] == 0:
+    user_data = database[database["Telegram Handle"] == username]
+    if user_data.shape[0] == 0:
         await context.bot.send_message(
             chat_id=chat_id,
             text=f"Was not able to find your telegram handle. Please contact Jerwaen"
         )
 
-    elif status_columns.shape[0] > 1:
+    elif user_data.shape[0] > 1:
         # If the same customer has multiple orders
-        status_columns = status_columns.iloc[-1, :]
+        user_data = user_data.iloc[-1, :]
 
     else:
-        status_columns = status_columns.iloc[0, :]
-
-    for i, col in enumerate(status_columns.index):
-        if "Collection" not in col:
-            continue
-
-        if status_columns[col] == "":
-            break
-
-    status_columns = status_columns.iloc[: i]
+        # Turn it into a series
+        user_data = user_data.iloc[0, :]
 
     dropoff_date = pd.to_datetime(
-        query.iloc[0, 0],
+        user_data["Date of Drop-off"],
         unit="D",
         origin="1899-12-30"
     ).date()
@@ -137,13 +132,19 @@ async def get_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
         text=f"Hello {update.effective_chat.effective_name}, fetching your order now"
     )
 
-    num_cards = int(len(status_columns) // 5)
-    for card_num in range(num_cards):
-        left_idx = (card_num * 5)
+    card_num = 0
+    while True:
+        # First card starts at 8
+        left_idx = 7 + (card_num * 5)
+        if left_idx >= len(user_data):
+            break
 
-        recovery_time = status_columns.iloc[left_idx]
-        front_img = status_columns.iloc[left_idx + 1]
-        back_img = status_columns.iloc[left_idx + 2]
+        recovery_time = user_data.iloc[left_idx]
+        if recovery_time == "":
+            break
+
+        front_img = user_data.iloc[left_idx + 1]
+        back_img = user_data.iloc[left_idx + 2]
 
         front_img_url = front_img[8: -4]
         back_img_url = back_img[8: -4]
@@ -164,6 +165,8 @@ async def get_order(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat_id=chat_id,
             media=mediagroup
         )
+
+        card_num += 1
 
 
 async def weekly_callback(context: ContextTypes.DEFAULT_TYPE):
@@ -233,11 +236,10 @@ def main():
         job_queue = application.job_queue
 
         # Every Monday at 10am
-        job_queue.run_once(
+        job_queue.run_daily(
             weekly_callback,
-            when = 0
-            # time=time(hour=10, minute=0, second=0),
-            # days=(1, )
+            time=time(hour=10, minute=0, second=0),
+            days=(1, )
         )
 
         for handler in handlers:
