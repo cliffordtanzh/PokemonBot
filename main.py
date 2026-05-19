@@ -1,8 +1,9 @@
 import logging
-import pandas as pd
+import json
 import os
 import re
 
+import pandas as pd
 from datetime import datetime, time
 from dotenv import load_dotenv, find_dotenv
 
@@ -25,7 +26,7 @@ WORKER_TELE_IDS = [
 
 creds = Credentials.from_service_account_file(
     scopes=SCOPES,
-    filename=os.getenv("DB_CREDENTIALS")
+    filename=json.loads(os.getenv("DB_CREDENTIALS"))
 )
 
 
