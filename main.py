@@ -1,4 +1,5 @@
 import logging
+import base64
 import json
 import os
 import re
@@ -15,6 +16,7 @@ from google.oauth2.service_account import Credentials
 
 load_dotenv(find_dotenv())
 
+
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
@@ -26,9 +28,8 @@ WORKER_TELE_IDS = [
 
 creds = Credentials.from_service_account_file(
     scopes=SCOPES,
-    filename=json.loads(os.getenv("DB_CREDENTIALS"))
+    filename="pokemon_cred.json"
 )
-
 
 gc = gspread.authorize(creds)
 sheet = gc.open("PKM DB_dev")
